@@ -2,17 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Text Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>AI Text Generator</h1>
-        <input type="text" id="promptInput" placeholder="Enter your prompt" />
-        <button onclick="genserateTextStreaming()">Generate</button>
-        <pre id="output"></pre>
-        <p id="costDisplay"></p>
+        <div class="header">
+            <div class="icon">✨</div>
+            <h1>AI Text Generator</h1>
+            <p class="subtitle">Powered by Gemini 2.5 Flash</p>
+        </div>
+
+        <div class="input-section">
+            <label for="prompt">Enter your prompt</label>
+            <textarea 
+                id="prompt" 
+                placeholder="Type your question or request here..."
+                rows="4"
+            ></textarea>
+        </div>
+
+        <button id="generateBtn" class="generate-btn">Generate</button>
+
+        <div id="costDisplay" class="cost-display" style="display: none;">
+            <span class="cost-label">Estimated Cost:</span>
+            <span id="costValue" class="cost-value">$0.000</span>
+        </div>
+
+        <div id="outputSection" class="output-section" style="display: none;">
+            <h3>Response</h3>
+            <div id="output" class="output"></div>
+            <button id="copyBtn" class="copy-btn">Copy</button>
+        </div>
+
+        <div id="loadingIndicator" class="loading" style="display: none;">
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="loading-text">Generating response...</span>
+        </div>
+
+        <div id="errorMessage" class="error" style="display: none;"></div>
     </div>
+
+    <footer class="footer">
+        <div id="footerText" class="footer-text"></div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
